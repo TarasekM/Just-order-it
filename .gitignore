@@ -1,0 +1,8 @@
+# virtual environments
+venv/
+env
+
+# PyCharm generated files
+.idea
+
+# Cache
