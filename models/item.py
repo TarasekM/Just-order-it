@@ -12,3 +12,6 @@ class Item(object):
         item['Tags'] = self.tags
         item['Ingredients'] = self.ingredients
         return item
+
+    def __repr__(self):
+        return self.get_dict()
