@@ -1,0 +1,82 @@
+html {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: royalblue;
+    color: white;
+}
+
+header {
+    font-size: 2.5vh;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+}
+
+header #header-heading {
+    margin: 1% auto 0;
+}
+
+#orders-container-container {
+    width: 100%;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.orders-header {
+    width: 49%;
+    margin: 1% auto;
+    height: 7%;
+    background-color: white;
+    border-radius: 1.25vw;
+    text-align: center;
+    font-size: 5vh;
+}
+
+#ready-orders-header {
+    background-color: rgb(125, 253, 125);
+    color: black;
+    font-weight: bold;
+}
+
+#not-ready-orders-header {
+    background-color: rgb(255, 117, 163);
+    color: black;
+    font-weight: bold;
+}
+
+.orders-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 49%;
+    height: 80vh;
+    margin: auto;
+    background-color: lightblue;
+    overflow: hidden;
+    border-radius: 1.25vw;
+    padding-bottom: 1vh;
+}
+
+.order-card {
+    border-radius: 1vw;
+    background-color: royalblue;
+    flex-basis: 18%;
+    height: 10%;
+    font-size: 8vh;
+    margin: 1% 1% 1% 1%;
+    text-align: center;
+}
+
+.not-ready-order-card {
+    background-color: rgb(252, 173, 199);
+    color: black;
+}
+
+.ready-order-card {
+    background-color: rgb(199, 255, 199);
+    color: black;
+}
