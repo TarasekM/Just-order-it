@@ -1,12 +1,44 @@
 import requests
 import json
-url = "http://192.168.99.100:9000/menu"
+url = "http://localhost:9000/menu"
 
-pizza = {
-    "name" : "pepperoni",
-    "price" : 21.99,
-    "tags" : ["food"],
-    "ingredients" : ["salami", "cheese", "tomato souce"]
+
+pizza1 = {
+    "name" : "Pizza Prosciutto",
+    "price" : 22.00,
+    "tags" : ["Main Meals"],
+    "ingredients" : ["prosciutto", "cheese", "tomato souce"]
 }
+response = requests.post(url, pizza1, verify=False)
 
-response = requests.post(url, pizza, verify=False)
+pizza2 = {
+    "name" : "Pizza Funghi",
+    "price" : 20.00,
+    "tags" : ["Main Meals"],
+    "ingredients" : ["mashrooms", "cheese", "tomato souce"]
+}
+response = requests.post(url, pizza2, verify=False)
+
+pizza3 = {
+    "name" : "Pizza Pepperoni",
+    "price" : 22.00,
+    "tags" : ["Main Meals"],
+    "ingredients" : ["spicy salami", "cheese", "tomato souce"]
+}
+response = requests.post(url, pizza3, verify=False)
+
+meal1 = {
+    "name" : "Devolay",
+    "price" : 25.00,
+    "tags" : ["Main Meals"],
+    "ingredients" : ["pork", "butter", "potatos", "salad"]
+}
+response = requests.post(url, meal1, verify=False)
+
+meal2 = {
+    "name" : "Chicken Risotto",
+    "price" : 18.00,
+    "tags" : ["Main Meals"],
+    "ingredients" : ["chicken", "rise", "olive", "vegetables"]
+}
+response = requests.post(url, meal1, verify=False)
