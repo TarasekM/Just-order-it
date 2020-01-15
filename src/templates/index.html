@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Just order it!</title>
+        <link rel="stylesheet" href="../static/css/bootstrap.css"> 
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Just order it!</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href=" {{ url_for('/') }} ">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+        </header>
+
+        <div id="create" class="d-flex flex-row justify-content-center">
+            <button type="button" class="btn btn-primary m-5">Create Order</button>
+        </div>
+
+
+        <div id="orders" class="d-flex flex-row justify-content-between w-100">
+            <div id="open_orders" class="card w-50 mr-5">
+                <h1>Open orders</h1>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action list-group-item-danger">Template</li>
+                </ul>
+            </div>
+            <div id="closed_orders" class="card w-50">
+                <h1>Closed Orders</h1>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action list-group-item-success">Template</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</html>
