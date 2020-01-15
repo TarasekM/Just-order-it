@@ -19,4 +19,4 @@ RUN groupadd -r just-api && useradd -r -g just-api just-api
 RUN chown -R just-api:just-api /just-api
 USER just-api
 
-CMD ["/just-api/cmd.sh"]
+CMD ["sh", "/just-api/cmd.sh"]
