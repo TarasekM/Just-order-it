@@ -41,7 +41,7 @@ meal2 = {
     "tags" : ["Main Meal"],
     "ingredients" : ["chicken", "rise", "olive", "vegetables"]
 }
-response = requests.post(url, meal1, verify=False)
+response = requests.post(url, meal2, verify=False)
 
 # Soups
 soup1 = {
@@ -60,7 +60,7 @@ soup2 = {
 }
 response = requests.post(url, soup2, verify=False)
 
-#Appetizers
+# Appetizers
 appetizer1 = {
     "name" : "Bread with lard",
     "price" : 15.00,
@@ -76,3 +76,87 @@ appetizer2 = {
     "ingredients" : ["cucumber", "vegetables", "spices"]
 }
 response = requests.post(url, appetizer2, verify=False)
+
+# Additives
+additive1 = {
+    "name" : "Chips",
+    "price" : 7.00,
+    "tags" : ["Additive"],
+    "ingredients" : ["potato", "salt", "ketchup"]
+}
+response = requests.post(url, additive1, verify=False)
+
+additive2 = {
+    "name" : "Garlic Sauce",
+    "price" : 2.00,
+    "tags" : ["Additive"],
+    "ingredients" : ["garlic", "majo", "egg", "salt"]
+}
+response = requests.post(url, additive2, verify=False)
+
+# Soft Drinks
+softdrink1 = {
+    "name" : "Tea",
+    "price" : 5.00,
+    "tags" : ["Soft Drink"],
+    "ingredients" : []
+}
+response = requests.post(url, softdrink1, verify=False)
+
+softdrink2 = {
+    "name" : "Coffe",
+    "price" : 6.00,
+    "tags" : ["Soft Drink"],
+    "ingredients" : []
+}
+response = requests.post(url, softdrink2, verify=False)
+
+softdrink3 = {
+    "name" : "Cola",
+    "price" : 5.00,
+    "tags" : ["Soft Drink"],
+    "ingredients" : []
+}
+response = requests.post(url, softdrink3, verify=False)
+
+softdrink4 = {
+    "name" : "Sprite",
+    "price" : 5.00,
+    "tags" : ["Soft Drink"],
+    "ingredients" : []
+}
+response = requests.post(url, softdrink4, verify=False)
+
+softdrink5 = {
+    "name" : "Fanta",
+    "price" : 5.00,
+    "tags" : ["Soft Drink"],
+    "ingredients" : []
+}
+response = requests.post(url, softdrink5, verify=False)
+
+# Alcohol
+
+alcohol1 = {
+    "name" : "Draft Beer",
+    "price" : 9.00,
+    "tags" : ["Alcohol"],
+    "ingredients" : []
+}
+response = requests.post(url, alcohol1, verify=False)
+
+alcohol2 = {
+    "name" : "Wine",
+    "price" : 12.00,
+    "tags" : ["Alcohol"],
+    "ingredients" : []
+}
+response = requests.post(url, alcohol2, verify=False)
+
+alcohol3 = {
+    "name" : "Whisky",
+    "price" : 15.00,
+    "tags" : ["Alcohol"],
+    "ingredients" : []
+}
+response = requests.post(url, alcohol3, verify=False)
