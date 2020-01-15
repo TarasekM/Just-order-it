@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  just-api:
+    build: .
+    ports:
+      - "9000:9000"
+    environment:
+      FLASK_APP: "just_api:create_app('development')"
+      FLASK_ENV: development
+      FLASK_RUN_PORT: 9000
+      DEV_MONGO_URI: "mongodb://mongodb:27017/mydb"
+    volumes:
+      - ./:/just-api/
+    depends_on:
+      - mongodb
+    networks:
+      - just-api-network
+
+  mongodb:
+    image: mongo
+    networks:
+      - just-api-network
+
+networks:
+  just-api-network:
+    driver: "bridge"
