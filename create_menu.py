@@ -39,7 +39,7 @@ meal2 = {
     "name" : "Chicken Risotto",
     "price" : 18.00,
     "tags" : ["Main Meal"],
-    "ingredients" : ["chicken", "rise", "olive", "vegetables"]
+    "ingredients" : ["chicken", "rice", "olive", "vegetables"]
 }
 response = requests.post(url, meal2, verify=False)
 

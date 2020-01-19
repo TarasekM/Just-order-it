@@ -1,6 +1,6 @@
 html {
     font-family: 'Courier New', Courier, monospace;
-    background-color: royalblue;
+    background-color: #2B2A2A;
     color: white;
 }
 
@@ -36,13 +36,13 @@ header #header-heading {
 }
 
 #ready-orders-header {
-    background-color: rgb(125, 253, 125);
+    background-color: rgb(79, 158, 14);
     color: black;
     font-weight: bold;
 }
 
 #not-ready-orders-header {
-    background-color: rgb(255, 117, 163);
+    background-color: rgb(240, 186, 38);
     color: black;
     font-weight: bold;
 }
@@ -55,7 +55,7 @@ header #header-heading {
     width: 49%;
     height: 80vh;
     margin: auto;
-    background-color: lightblue;
+    background-color: rgb(74, 93, 99);
     overflow: hidden;
     border-radius: 1.25vw;
     padding-bottom: 1vh;
@@ -72,7 +72,7 @@ header #header-heading {
 }
 
 .not-ready-order-card {
-    background-color: rgb(252, 173, 199);
+    background-color: rgb(216, 199, 143);
     color: black;
 }
 
