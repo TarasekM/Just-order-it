@@ -8,7 +8,18 @@ url = 'http://192.168.99.100:9000/menu'
 def index():
     res = requests.get(url)
     menu = res.json()
-    return render_template("index.html", menu=menu)
+    tags = get_tags(menu)
+    return render_template("index.html", menu=menu, tags=tags)
+
+
+def get_tags(menu):
+    tags = list()
+    items = [item['tags'] for item in menu]
+    for item_tags in items:
+        for tag in item_tags:
+            if tag not in tags:
+                tags.append(tag)
+    return tags
 
 
 if __name__ == '__main__':
