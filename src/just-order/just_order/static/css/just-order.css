@@ -1,0 +1,46 @@
+body {
+    background-color: rgb(60, 60, 60) !important;
+}
+
+h1 {
+    margin: 1rem !important;
+}
+
+.header-positive {
+    color: rgb(170, 212, 140) !important;
+}
+
+.header-negative {
+    color: rgb(240, 180, 40) !important;
+}
+
+
+.navbar {
+    background-color: black !important;
+}
+
+.navbar-brand {
+    color: rgb(240, 180, 40) !important;
+}
+
+.navbar-brand:hover {
+    color: white !important;
+}
+
+.btn-block {
+    background-color: rgb(170, 212, 140) !important;
+    color: white !important;
+    box-shadow: black !important;
+    margin: 1rem !important;
+}
+
+.btn-block:hover {
+    background-color: rgb(80, 160, 15) !important;
+    color: white !important;
+    box-shadow: black !important;
+}
+
+.card {
+    margin: 1rem !important;
+    background-color: rgb(255, 233, 198) !important;
+}
