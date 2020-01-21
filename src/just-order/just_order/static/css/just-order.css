@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(60, 60, 60) !important;
+    background-color: rgb(120, 120, 120)  !important;
 }
 
 h1 {
@@ -13,7 +13,6 @@ h1 {
 .header-negative {
     color: rgb(240, 180, 40) !important;
 }
-
 
 .navbar {
     background-color: black !important;
@@ -42,5 +41,29 @@ h1 {
 
 .card {
     margin: 1rem !important;
-    background-color: rgb(255, 233, 198) !important;
+    background-color: rgb(255, 240, 215) !important;
+}
+
+.modal-title {
+    color: rgb(240, 180, 40) !important;
+}
+
+.modal-header {
+    background-color: rgb(120, 120, 120) !important;
+}
+
+.modal-body {
+    background-color: rgb(231, 231, 231) !important;
+}
+
+.modal-footer {
+    background-color: rgb(120, 120, 120)  !important;
+}
+
+.btn-secondary {
+    background-color: rgb(255, 150, 150);
+}
+
+.btn-primary {
+    background-color: rgb(80, 160, 15) !important;
 }
