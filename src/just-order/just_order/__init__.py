@@ -16,7 +16,7 @@ def get_tags(menu):
     tags = list()
     items = [item['tags'] for item in menu]
     for item_tags in items:
-        for tag in item_tags:
+        for tag in item_tags: 
             if tag not in tags:
                 tags.append(tag)
     return tags
