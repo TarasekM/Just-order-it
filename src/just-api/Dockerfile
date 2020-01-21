@@ -3,7 +3,7 @@ FROM python:3.7-buster
 COPY requirements.txt /just-api/
 COPY just_api /just-api/just_api
 COPY wsgi.py /just-api/
-# COPY tests /just-api/
+COPY populate /just-api/populate
 COPY cmd.sh /just-api/
 
 WORKDIR /just-api/

@@ -1,0 +1,159 @@
+[
+    {
+        "name": "dish1",
+        "price": 100.0,
+        "tags": [
+            "vegan",
+            "gluten-free"
+        ],
+        "ingredients": [
+            "something",
+            "something else"
+        ]
+    },
+    {
+        "name": "dish2",
+        "price": 32.0,
+        "tags": [
+            "vegan",
+            "gluten-free"
+        ],
+        "ingredients": [
+            "something",
+            "something else"
+        ]
+    },
+    {
+        "name": "dish3",
+        "price": 23.0,
+        "tags": [
+            "vegan",
+            "gluten-free"
+        ],
+        "ingredients": [
+            "something",
+            "something else"
+        ]
+    },
+    {
+        "name": "dish4",
+        "price": 65.0,
+        "tags": [
+            "vegan",
+            "gluten-free"
+        ],
+        "ingredients": [
+            "something",
+            "something else"
+        ]
+    },
+    {
+        "name": "dish5",
+        "price": 54.0,
+        "tags": [
+            "vegan",
+            "gluten-free"
+        ],
+        "ingredients": [
+            "something",
+            "something else"
+        ]
+    },
+    {
+        "name": "dish6",
+        "price": 7.0,
+        "tags": [
+            "vegan",
+            "gluten-free"
+        ],
+        "ingredients": [
+            "something",
+            "something else"
+        ]
+    },
+    {
+        "name": "dish7",
+        "price": 9.0,
+        "tags": [
+            "vegan",
+            "gluten-free"
+        ],
+        "ingredients": [
+            "something",
+            "something else"
+        ]
+    },
+    {
+        "name": "dish8",
+        "price": 87.0,
+        "tags": [
+            "vegan",
+            "gluten-free"
+        ],
+        "ingredients": [
+            "something",
+            "something else"
+        ]
+    },
+    {
+        "name": "dish9",
+        "price": 64.0,
+        "tags": [
+            "vegan",
+            "gluten-free"
+        ],
+        "ingredients": [
+            "something",
+            "something else"
+        ]
+    },
+    {
+        "name": "dish10",
+        "price": 43.0,
+        "tags": [
+            "vegan",
+            "gluten-free"
+        ],
+        "ingredients": [
+            "something",
+            "something else"
+        ]
+    },
+    {
+        "name": "dish11",
+        "price": 43.0,
+        "tags": [
+            "vegan",
+            "gluten-free"
+        ],
+        "ingredients": [
+            "something",
+            "something else"
+        ]
+    },
+    {
+        "name": "dish12",
+        "price": 90.0,
+        "tags": [
+            "vegan",
+            "gluten-free"
+        ],
+        "ingredients": [
+            "something",
+            "something else"
+        ]
+    },
+    {
+        "name": "dish13",
+        "price": 900.0,
+        "tags": [
+            "vegan",
+            "gluten-free",
+            "premium"
+        ],
+        "ingredients": [
+            "something",
+            "something else"
+        ]
+    }
+]
