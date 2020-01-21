@@ -23,7 +23,8 @@ def create_app(config_name: str = None,
         app.config.from_mapping(config_dict)
 
     mongo.init_app(app)
-
+    if mongo.db.last_order_id.find_one({}) is None:
+        mongo.db.last_order_id.insert_one({'order_id': 0})
     from .resources import api
     app.url_map.converters['ObjectId'] = BSONObjectIdConverter
     api.init_app(app)

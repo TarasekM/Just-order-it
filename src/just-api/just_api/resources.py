@@ -24,12 +24,21 @@ class Orders(Resource):
     """
 
     def get(self):
-        return make_response(jsonify(list(mongo.db.orders.find({}))), 200)
+        resp = make_response(jsonify(list(mongo.db.orders.find({}))), 200)
+        resp.headers['Access-Control-Allow-Origin'] = '*'
+        return resp
 
     def post(self):
         args = order_arg_parser.parse_args()
+        last_order_id = mongo.db.last_order_id.find_one({})['order_id']
+        args['order_id'] = last_order_id
+        mongo.db.last_order_id.find_one_and_update(
+            {},
+            {"$inc": {'order_id': 1}} if last_order_id <= 100 else {
+                "$set": {'order_id': 0}}
+        )
+        args['status'] = 'making'
         args['order_date'] = datetime.datetime.now()
-        args['order_pickup_date'] = ''
         inserted_id = mongo.db.orders.insert_one(args).inserted_id
         return make_response(jsonify({'_id': inserted_id}), 201)
 
@@ -56,7 +65,7 @@ class SpecificOrder(Resource):
         args = item_arg_parser.parse_args()
         mongo.db.orders.find_one_or_404({'_id': _id})
         mongo.db.orders.find_one_and_update({"_id": _id},
-                                           {"$set": args})
+                                            {"$set": args})
         return make_response(jsonify({'_id': _id}), 200)
 
     def delete(self, _id):
@@ -68,9 +77,9 @@ class SpecificOrder(Resource):
 class WaitingOrders(Resource):
 
     def post(self, _id):
-        mongo.db.menu.find_one_or_404({'_id': _id})
+        mongo.db.orders.find_one_or_404({'_id': _id})
         mongo.db.orders.find_one_and_update({"_id": _id},
-                                           {"$set": {'status': 'ready'}})
+                                            {"$set": {'status': 'ready'}})
         return make_response(jsonify({'_id': _id}), 200)
 
 
