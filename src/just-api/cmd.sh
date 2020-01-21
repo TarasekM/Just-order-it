@@ -1,5 +1,7 @@
 #!/bin/bash
 if [ "$FLASK_ENV" = 'development' ]; then
+    echo "Pupulating Mongo"
+    python ./populate/populate_mongo.py
     echo "Running Development Server"
     exec python -m flask run --host=0.0.0.0 --port=$FLASK_RUN_PORT
 elif [ "$FLASK_ENV" = 'testing' ]; then
