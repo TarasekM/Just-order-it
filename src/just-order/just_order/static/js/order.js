@@ -21,3 +21,19 @@ function sendOrder(){
 function reloadModal(){
     $("#createOrder").load(location.href + " #createOrder>*");
 }
+
+function fetchOrders(){
+    orders = $.get(url);
+    for(let i in orders){
+        putIntoPage(orders[i]);
+    }
+}
+
+function putIntoPage(order){
+    if(order['status'] == 'open'){
+        orders = $('#open_orders');
+        var div = $('<div>');
+        div.text(order['name']);
+        orders.append(div);
+    }
+}
