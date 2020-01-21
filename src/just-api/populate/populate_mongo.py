@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 from pprint import pprint
 from random import randint
-
+from datetime import datetime
 from pymongo import MongoClient
 
 ORDERS_DATA_JSON = Path(os.path.realpath(
@@ -32,10 +32,15 @@ if __name__ == '__main__':
         orders = json.load(orders_file)
 
     last_index_of_orders = len(orders) - 1
+    order_id = 0
+    order_date = datetime.now()
     for order in orders:
         start = randint(0, last_index_of_orders)
         end = start + randint(1, 5)
-        order.update({'items': menu_result.inserted_ids[start:end]})
+        order.update({'items': menu_result.inserted_ids[start:end],
+                      'order_id': order_id,
+                      'order_date': order_date})
+        order_id += 1
 
     print('Inserting orders')
     result = mongo[DATABASE].orders.insert_many(orders)

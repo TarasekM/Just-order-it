@@ -24,6 +24,8 @@ def create_app(config_name: str = None,
 
     mongo.init_app(app)
 
+    mongo.db.last_order_id.insert_one({'order_id': 0})
+    
     from .resources import api
     app.url_map.converters['ObjectId'] = BSONObjectIdConverter
     api.init_app(app)

@@ -13,8 +13,4 @@ item_arg_parser.add_argument(
 
 order_arg_parser = RequestParser()
 order_arg_parser.add_argument(
-    'order_date', dest='order_date', type=str, help='(str) Date of the order.')
-order_arg_parser.add_argument(
-    'order_pickup_date', dest='order_pickup_date', type=str, help='(str) Date of the pickup order.')
-order_arg_parser.add_argument(
     'items', dest='items', type=str, action='append', help='(list) IDs of items in the order')
