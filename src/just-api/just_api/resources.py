@@ -24,13 +24,13 @@ class Orders(Resource):
     """
 
     def get(self):
-        return make_response(jsonify(list(mongo.db.order.find({}))), 200)
+        return make_response(jsonify(list(mongo.db.orders.find({}))), 200)
 
     def post(self):
         args = order_arg_parser.parse_args()
         args['order_date'] = datetime.datetime.now()
         args['order_pickup_date'] = ''
-        inserted_id = mongo.db.order.insert_one(args).inserted_id
+        inserted_id = mongo.db.orders.insert_one(args).inserted_id
         return make_response(jsonify({'_id': inserted_id}), 201)
 
 
@@ -49,54 +49,29 @@ class SpecificOrder(Resource):
     """
 
     def get(self, _id):
-        item = mongo.db.order.find_one_or_404({'_id': _id})
+        item = mongo.db.orders.find_one_or_404({'_id': _id})
         return make_response(jsonify(item), 200)
 
     def put(self, _id):
         args = item_arg_parser.parse_args()
-        mongo.db.order.find_one_or_404({'_id': _id})
-        mongo.db.order.find_one_and_update({"_id": _id},
+        mongo.db.orders.find_one_or_404({'_id': _id})
+        mongo.db.orders.find_one_and_update({"_id": _id},
                                            {"$set": args})
         return make_response(jsonify({'_id': _id}), 200)
 
     def delete(self, _id):
-        mongo.db.order.find_one_or_404({'_id': _id})
-        mongo.db.order.delete_one({'_id': _id})
+        mongo.db.orders.find_one_or_404({'_id': _id})
+        mongo.db.orders.delete_one({'_id': _id})
         return make_response(jsonify({'_id': _id}), 200)
 
 
-class ClosedOrders(Resource):
-    """ Restaurant orders resource class.
-
-    Methods
-    -------
-    get
-        Returns all orders of the restaurant as json.
-    post
-        Creates new specific order, writes it to the database and returns id.
-
-    """
-
-    def get(self):
-        # TODO: get all closed orders from mongo
-        return make_response(jsonify(list(mongo.db.order.find({}))), 200)
-
-
 class WaitingOrders(Resource):
-    """ Restaurant orders resource class.
 
-    Methods
-    -------
-    get
-        Returns all orders of the restaurant as json.
-    post
-        Creates new specific order, writes it to the database and returns id.
-
-    """
-
-    def get(self):
-        # TODO: get all waiting orders from mongo
-        return make_response(jsonify(list(mongo.db.order.find({}))), 200)
+    def post(self, _id):
+        mongo.db.menu.find_one_or_404({'_id': _id})
+        mongo.db.orders.find_one_and_update({"_id": _id},
+                                           {"$set": {'status': 'ready'}})
+        return make_response(jsonify({'_id': _id}), 200)
 
 
 class Menu(Resource):
@@ -153,7 +128,6 @@ class MenuItem(Resource):
 
 api.add_resource(Orders, '/orders')
 api.add_resource(SpecificOrder, '/orders/<ObjectId:_id>')
-api.add_resource(ClosedOrders, '/orders/closed')
-api.add_resource(WaitingOrders, '/orders/waiting')
+api.add_resource(WaitingOrders, '/orders/<ObjectId:_id>/ready')
 api.add_resource(MenuItem, '/menu/<ObjectId:_id>')
 api.add_resource(Menu, '/menu')
