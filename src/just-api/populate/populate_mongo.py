@@ -42,6 +42,7 @@ if __name__ == '__main__':
                       'order_date': order_date})
         order_id += 1
 
+    mongo[DATABASE].last_order_id.insert_one({'order_id': order_id})
     print('Inserting orders')
     result = mongo[DATABASE].orders.insert_many(orders)
     print('Inserted:', mongo[DATABASE].orders.count_documents({}))

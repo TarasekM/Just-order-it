@@ -24,7 +24,9 @@ class Orders(Resource):
     """
 
     def get(self):
-        return make_response(jsonify(list(mongo.db.orders.find({}))), 200)
+        resp = make_response(jsonify(list(mongo.db.orders.find({}))), 200)
+        resp.headers['Access-Control-Allow-Origin'] = '*'
+        return resp
 
     def post(self):
         args = order_arg_parser.parse_args()
