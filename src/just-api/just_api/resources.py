@@ -65,6 +65,61 @@ class SpecificOrder(Resource):
         return make_response(jsonify({'_id': _id}), 200)
 
 
+class ClosedOrders(Resource):
+    """ Restaurant orders resource class.
+
+    Methods
+    -------
+    get
+        Returns all orders of the restaurant as json.
+    post
+        Creates new specific order, writes it to the database and returns id.
+
+    """
+
+    def get(self):
+        # TODO: get all closed orders from mongo
+        return make_response(jsonify(list(mongo.db.order.find({}))), 200)
+
+
+class WaitingOrders(Resource):
+    """ Restaurant orders resource class.
+
+    Methods
+    -------
+    get
+        Returns all orders of the restaurant as json.
+    post
+        Creates new specific order, writes it to the database and returns id.
+
+    """
+
+    def get(self):
+        # TODO: get all waiting orders from mongo
+        return make_response(jsonify(list(mongo.db.order.find({}))), 200)
+
+
+class Menu(Resource):
+    """ Restaurant menu resource class.
+
+    Methods
+    -------
+    get
+        Returns all items from current menu of the restaurant as json.
+    post
+        Creates new menu item, writes it to the database and returns id.
+
+    """
+
+    def get(self):
+        return make_response(jsonify(list(mongo.db.menu.find({}))), 200)
+
+    def post(self):
+        args = item_arg_parser.parse_args()
+        inserted_id = mongo.db.menu.insert_one(args).inserted_id
+        return make_response(jsonify({'_id': inserted_id}), 201)
+
+
 class MenuItem(Resource):
     """ Restaurant menu item resource class.
 
@@ -96,28 +151,9 @@ class MenuItem(Resource):
         return make_response(jsonify({'_id': _id}), 200)
 
 
-class Menu(Resource):
-    """ Restaurant menu resource class.
-
-    Methods
-    -------
-    get
-        Returns all items from current menu of the restaurant as json.
-    post
-        Creates new menu item, writes it to the database and returns id.
-
-    """
-
-    def get(self):
-        return make_response(jsonify(list(mongo.db.menu.find({}))), 200)
-
-    def post(self):
-        args = item_arg_parser.parse_args()
-        inserted_id = mongo.db.menu.insert_one(args).inserted_id
-        return make_response(jsonify({'_id': inserted_id}), 201)
-
-
-api.add_resource(MenuItem, '/menu/<ObjectId:_id>')
-api.add_resource(Menu, '/menu')
 api.add_resource(Orders, '/orders')
 api.add_resource(SpecificOrder, '/orders/<ObjectId:_id>')
+api.add_resource(ClosedOrders, '/orders/closed')
+api.add_resource(WaitingOrders, '/orders/waiting')
+api.add_resource(MenuItem, '/menu/<ObjectId:_id>')
+api.add_resource(Menu, '/menu')

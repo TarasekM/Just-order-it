@@ -17,6 +17,4 @@ order_arg_parser.add_argument(
 order_arg_parser.add_argument(
     'order_pickup_date', dest='order_pickup_date', type=str, help='(str) Date of the pickup order.')
 order_arg_parser.add_argument(
-    'items', dest='items', type=str, action='append', help='(str) IDs of items in the order')
-order_arg_parser.add_argument(
-    'total_price', dest='total_price', type=float, help='(float) Total price of the order')
+    'items', dest='items', type=str, action='append', help='(list) IDs of items in the order')
