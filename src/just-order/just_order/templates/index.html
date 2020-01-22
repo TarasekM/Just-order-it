@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Just order it!</title>
         <link rel="stylesheet" href="../static/css/bootstrap.css">
+        <link rel="stylesheet" href="../static/css/just-order.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
 
@@ -15,33 +16,60 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href=" {{ url_for('.index') }} ">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
+            </nav>
         </header>
 
         <div id="create" class="d-flex flex-row justify-content-center">
-            <button type="button" data-toggle="modal" data-target="#createOrder" class="btn btn-primary m-5">
-                Create Order
-            </button>
+            <button type="button" data-toggle="modal" data-target="#createOrder" class="btn btn-secondary btn-lg btn-block">Create Order</button>
         </div>
-
 
         <div id="orders" class="d-flex flex-row justify-content-between w-100">
             <div class="card w-50 mr-5">
+<<<<<<< HEAD
                 <h1>Open orders</h1>
                 <ul class="list-group" id="open_orders">
+=======
+                <div class="header-positive">
+                  <h1>Open Orders</h1>
+                </div>
+                <ul class="list-group"  id="open_orders" >
+                  <div class = "container">
+                      <ul class = "list-group">
+                         <li class = "list-group-item">
+                          <div class="d-flex w-100 justify-content-between">
+                            <h3 class = "list-group-item-heading">Order:</h3>
+                            <h3 class = "list-group-item-heading">001</h3>
+                          </div>
+                          <p class = "list-group-item-text">India</p>
+                          <button type="button" class="btn btn-warning">Close Order</button>
+                         </li>
+                      </ul>
+                   </div>
+>>>>>>> 5199b4dcd4a939dd75c3abf0d382b3c48da28960
                 </ul>
             </div>
+
             <div class="card w-50">
+<<<<<<< HEAD
                 <h1>Closed Orders</h1>
                 <ul class="list-group" id="closed_orders">
+=======
+                <div class="header-negative">
+                  <h1>Closed Orders</h1>
+                </div>
+                <ul class="list-group"  id="open_orders" >
+                  <div class = "container">
+                      <ul class = "list-group">
+                         <li class = "list-group-item">
+                          <div class="d-flex w-100 justify-content-between">
+                            <h3 class = "list-group-item-heading">Order:</h3>
+                            <h3 class = "list-group-item-heading">001</h3>
+                          </div>
+                          <p class = "list-group-item-text">India</p>
+                         </li>
+                      </ul>
+                   </div>
+>>>>>>> 5199b4dcd4a939dd75c3abf0d382b3c48da28960
                 </ul>
             </div>
         </div>
@@ -88,7 +116,7 @@
                                     <input class="form-check-input" type="checkbox" value="">
                                     <input type="hidden" value="{{ item['_id'] }}">
                                     <label class="form-check-label" for=" {{ item['_id'] }}">
-                                      Zatwierdź
+                                      Add
                                     </label>
                                   </div>
                                 </div>
