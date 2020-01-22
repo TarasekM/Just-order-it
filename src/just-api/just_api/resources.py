@@ -40,7 +40,9 @@ class Orders(Resource):
         args['status'] = 'making'
         args['order_date'] = datetime.datetime.now()
         inserted_id = mongo.db.orders.insert_one(args).inserted_id
-        return make_response(jsonify({'_id': inserted_id}), 201)
+        resp = make_response(jsonify({'_id': inserted_id}), 201)
+        resp.headers['Access-Control-Allow-Origin'] = '*'
+        return resp
 
 
 class SpecificOrder(Resource):
@@ -80,7 +82,9 @@ class WaitingOrders(Resource):
         mongo.db.orders.find_one_or_404({'_id': _id})
         mongo.db.orders.find_one_and_update({"_id": _id},
                                             {"$set": {'status': 'ready'}})
-        return make_response(jsonify({'_id': _id}), 200)
+        resp = make_response(jsonify({'_id': _id}), 200)
+        resp.headers['Access-Control-Allow-Origin'] = '*'
+        return resp
 
 
 class Menu(Resource):
@@ -96,12 +100,17 @@ class Menu(Resource):
     """
 
     def get(self):
-        return make_response(jsonify(list(mongo.db.menu.find({}))), 200)
+        resp = make_response(jsonify(list(mongo.db.menu.find({}))), 200)
+        resp.headers['Access-Control-Allow-Origin'] = '*'
+        return resp
 
     def post(self):
         args = item_arg_parser.parse_args()
         inserted_id = mongo.db.menu.insert_one(args).inserted_id
-        return make_response(jsonify({'_id': inserted_id}), 201)
+        resp = make_response(jsonify({'_id': inserted_id}), 201)
+        resp.headers['Access-Control-Allow-Origin'] = '*'
+        return resp
+       
 
 
 class MenuItem(Resource):
